@@ -16,14 +16,13 @@ def serve_image():
     # variable according to that 
     cam_port = 0
 
-    # Use the DirectShow driver
-    capture = cv2.VideoCapture(cam_port, cv2.CAP_DSHOW)
+    capture = cv2.VideoCapture(cam_port)
     
     # Set the image width and height
     #capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1024)
     #capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 768)
     print(cv2.getBuildInformation())
-    
+
     # Read the input
     result, image = capture.read() 
     
