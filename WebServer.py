@@ -40,7 +40,7 @@ def serve_image():
         date_time = str(datetime.datetime.now())
         
         # write the date time in the video frame
-        image = cv2.putText(image, date_time, (10, 20), font, 0.6, (0, 0, 0), 2, cv2.LINE_AA)
+        image = cv2.putText(image, date_time, (10, 20), font, 0.6, (0, 0, 0), 1, cv2.LINE_AA)
 
         # saving image in local storage 
         cv2.imwrite("static/image.jpg", image) 
