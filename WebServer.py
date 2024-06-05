@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 # importing OpenCV library 
-from cv2 import *
+import cv2
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def serve_image():
     # current device, assign a value in cam_port  
     # variable according to that 
     cam_port = 0
-    cam = VideoCapture(cam_port) 
+    cam = cv2.VideoCapture(cam_port) 
     
     # reading the input using the camera 
     result, image = cam.read() 
@@ -24,7 +24,7 @@ def serve_image():
     # show result 
     if result: 
         # saving image in local storage 
-        imwrite("static/image.jpg", image) 
+        cv2.imwrite("static/image.jpg", image) 
         status = "Success"
     
     # If captured image is corrupted, moving to else part 
