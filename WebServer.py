@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 # importing OpenCV library 
 import cv2
+import datetime
 
 app = Flask(__name__)
 
@@ -31,6 +32,16 @@ def serve_image():
     result, image = capture.read() 
     
     if result: 
+        # Add current date and time text to image
+        # describe the font type
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        
+        # Get current date and time  
+        date_time = str(datetime.datetime.now())
+        
+        # write the date time in the video frame
+        image = cv2.putText(image, date_time,(10, 100),font, 1,(210, 155, 155), 4, cv2.LINE_4)
+
         # saving image in local storage 
         cv2.imwrite("static/image.jpg", image) 
         status = "Success"
