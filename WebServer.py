@@ -18,8 +18,9 @@ def serve_image():
 
     capture = cv2.VideoCapture(cam_port)
     
-    width = request.args.get('width')
-    height = request.args.get('height')
+    # TODO: Catch format / out of range exception here
+    width = float(request.args.get('width'))
+    height = float(request.args.get('height'))
 
     # Set the image width and height
     capture.set(cv2.CAP_PROP_FRAME_WIDTH, width)
