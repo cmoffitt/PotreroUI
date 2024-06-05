@@ -18,10 +18,13 @@ def serve_image():
 
     capture = cv2.VideoCapture(cam_port)
     
+    width = request.args.get('width')
+    height = request.args.get('height')
+
     # Set the image width and height
-    #capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1024)
-    #capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 768)
-    print(cv2.getBuildInformation())
+    capture.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    #print(cv2.getBuildInformation())
 
     # Read the input
     result, image = capture.read() 
