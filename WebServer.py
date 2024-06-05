@@ -20,8 +20,8 @@ def serve_image():
     capture = cv2.VideoCapture(cam_port, cv2.CAP_DSHOW)
     
     # Set the image width and height
-    capture.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 400)
+    capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1024)
+    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 768)
 
     # Read the input
     result, image = capture.read() 
