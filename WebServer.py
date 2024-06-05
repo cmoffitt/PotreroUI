@@ -15,19 +15,22 @@ def serve_image():
     # current device, assign a value in cam_port  
     # variable according to that 
     cam_port = 0
-    cam = cv2.VideoCapture(cam_port) 
+
+    # Use the DirectShow driver
+    capture = cv2.VideoCapture(cam_port, cv2.CAP_DSHOW)
     
-    # reading the input using the camera 
-    result, image = cam.read() 
+    # Set the image width and height
+    capture.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
+    capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 400)
+
+    # Read the input
+    result, image = capture.read() 
     
-    # If image will detected without any error,  
-    # show result 
     if result: 
         # saving image in local storage 
         cv2.imwrite("static/image.jpg", image) 
         status = "Success"
     
-    # If captured image is corrupted, moving to else part 
     else: 
         status = "No image detected. Please! try again"
 
